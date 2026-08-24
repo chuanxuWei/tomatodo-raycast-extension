@@ -43,3 +43,4 @@ declare namespace Arguments {
   /** Arguments passed to the `tomato-timer` command */
   export type TomatoTimer = {}
 }
+
