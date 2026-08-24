@@ -1,0 +1,213 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "tomato-todo",
+  "title": "Tomato ToDo",
+  "description": "Plan tasks and stay focused with a task-linked Pomodoro timer.",
+  "icon": "icon.png",
+  "author": "feynman_christian",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chuanxuWei/tomatodo-raycast-extension.git"
+  },
+  "keywords": [
+    "pomodoro",
+    "todo",
+    "focus",
+    "timer",
+    "tasks"
+  ],
+  "categories": [
+    "Productivity"
+  ],
+  "platforms": [
+    "macOS"
+  ],
+  "commands": [
+    {
+      "name": "manage-tasks",
+      "title": "Manage Tasks",
+      "description": "Plan tasks, start focus sessions, and review progress",
+      "mode": "view"
+    },
+    {
+      "name": "quick-add-task",
+      "title": "Quick Add Task",
+      "description": "Add a task without opening the task list",
+      "mode": "no-view",
+      "arguments": [
+        {
+          "name": "title",
+          "placeholder": "Task title",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "estimate",
+          "placeholder": "Estimated tomatoes (1-99)",
+          "type": "text",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "tomato-timer",
+      "title": "Tomato Timer",
+      "description": "View and control the current timer from the menu bar",
+      "mode": "menu-bar",
+      "interval": "10s"
+    }
+  ],
+  "preferences": [
+    {
+      "name": "focusMinutes",
+      "title": "Focus Duration",
+      "description": "Length of a focus session",
+      "type": "dropdown",
+      "required": true,
+      "default": "25",
+      "data": [
+        {
+          "title": "1 minute (Testing)",
+          "value": "1"
+        },
+        {
+          "title": "15 minutes",
+          "value": "15"
+        },
+        {
+          "title": "20 minutes",
+          "value": "20"
+        },
+        {
+          "title": "25 minutes",
+          "value": "25"
+        },
+        {
+          "title": "30 minutes",
+          "value": "30"
+        },
+        {
+          "title": "45 minutes",
+          "value": "45"
+        },
+        {
+          "title": "50 minutes",
+          "value": "50"
+        },
+        {
+          "title": "60 minutes",
+          "value": "60"
+        }
+      ]
+    },
+    {
+      "name": "shortBreakMinutes",
+      "title": "Short Break Duration",
+      "description": "Length of a short break",
+      "type": "dropdown",
+      "required": true,
+      "default": "5",
+      "data": [
+        {
+          "title": "1 minute (Testing)",
+          "value": "1"
+        },
+        {
+          "title": "5 minutes",
+          "value": "5"
+        },
+        {
+          "title": "10 minutes",
+          "value": "10"
+        },
+        {
+          "title": "15 minutes",
+          "value": "15"
+        }
+      ]
+    },
+    {
+      "name": "longBreakMinutes",
+      "title": "Long Break Duration",
+      "description": "Length of a long break",
+      "type": "dropdown",
+      "required": true,
+      "default": "15",
+      "data": [
+        {
+          "title": "1 minute (Testing)",
+          "value": "1"
+        },
+        {
+          "title": "10 minutes",
+          "value": "10"
+        },
+        {
+          "title": "15 minutes",
+          "value": "15"
+        },
+        {
+          "title": "20 minutes",
+          "value": "20"
+        },
+        {
+          "title": "30 minutes",
+          "value": "30"
+        }
+      ]
+    },
+    {
+      "name": "focusesPerLongBreak",
+      "title": "Focuses Before Long Break",
+      "description": "Completed focus sessions required before recommending a long break",
+      "type": "dropdown",
+      "required": true,
+      "default": "4",
+      "data": [
+        {
+          "title": "2 focuses",
+          "value": "2"
+        },
+        {
+          "title": "3 focuses",
+          "value": "3"
+        },
+        {
+          "title": "4 focuses",
+          "value": "4"
+        },
+        {
+          "title": "5 focuses",
+          "value": "5"
+        },
+        {
+          "title": "6 focuses",
+          "value": "6"
+        }
+      ]
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "^2.0.5"
+  },
+  "devDependencies": {
+    "@raycast/eslint-config": "^2.2.0",
+    "@types/node": "22.19.17",
+    "@types/react": "19.0.10",
+    "eslint": "^9.39.1",
+    "prettier": "^3.6.2",
+    "react": "^19.2.0",
+    "react-devtools": "6.1.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.11"
+  },
+  "scripts": {
+    "build": "ray build -e dist",
+    "dev": "ray develop",
+    "fix-lint": "ray lint --fix",
+    "lint": "ray lint",
+    "publish": "ray publish",
+    "test": "vitest run"
+  }
+}
